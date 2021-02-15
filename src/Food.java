@@ -59,13 +59,6 @@ public class Food {
         this.tags = tags;
     }
 
-    public void show() {
-        System.out.println("Название блюда: " + getName());
-        System.out.println("Цена: " + getPrice());
-        System.out.println("Состав: " + getComposition());
-        System.out.println();
-    }
-
     @Override
     public String toString() {
         return "Food{" +
