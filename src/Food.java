@@ -65,4 +65,13 @@ public class Food {
         System.out.println("Состав: " + getComposition());
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", composition='" + composition + '\'' +
+                '}';
+    }
 }

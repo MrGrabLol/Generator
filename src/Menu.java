@@ -1,7 +1,4 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Menu {
 
@@ -14,7 +11,6 @@ public class Menu {
         list.add(new Food("Веган-суп", 249, "Овощи и тд", Arrays.asList(Tag.VEGAN, Tag.SPICY, Tag.SWEET), FoodType.SOUP));
         list.add(new Food("Борщ", 249, "Свекла и тд", Arrays.asList(Tag.MEAT, Tag.CHICKEN), FoodType.SOUP));
         list.add(new Food("Суп похмельный", 349, "Водка и тд", Arrays.asList(Tag.MEAT, Tag.ALCOHOL), FoodType.SOUP));
-
 
         list.add(new Food("Утка по Пекински", 5999, "Утка и тд", Arrays.asList(Tag.CHICKEN, Tag.SPICY), FoodType.SECOND));
         list.add(new Food("Золотая пицца", 30000, "Тесто и тд", Arrays.asList(Tag.SPICY, Tag.MEAT, Tag.CHICKEN), FoodType.SECOND));
@@ -68,9 +64,21 @@ public class Menu {
                 }
             }
             int[] typeArray2 = Arrays.copyOfRange(typeArray, 0, counter);
+            Set<FoodType> types = new HashSet<>();
+            for (int i : typeArray2) {
+                switch (i) {
+                    case 1 -> types.add(FoodType.SOUP);
+                    case 2 -> types.add(FoodType.SECOND);
+                    case 3 -> types.add(FoodType.SNACKS);
+                    case 4 -> types.add(FoodType.DESSERTS);
+                    case 5 -> types.add(FoodType.DRINKS);
+                    case 6 -> types.add(FoodType.ALCOHOL_DRINKS);
+                    default -> System.out.println();
+                }
+            }
             System.out.println("Выберите подходящие тэги: 1 - со специями, 2 - алкоголь, 3 - веган, " +
-                               "4 - мясо, 5 - птица, 6 - рыба, 7 - сладкое, 8 - горячий напиток, 9 - напиток. " +
-                               "Чтобы прекратить ввод, введите 0. Ваш выбор?");
+                    "4 - мясо, 5 - птица, 6 - рыба, 7 - сладкое, 8 - горячий напиток, 9 - напиток. " +
+                    "Чтобы прекратить ввод, введите 0. Ваш выбор?");
             int counter2 = 0;
             int[] tagArray = new int[9];
             for (int i = 0; i < 9; i++) {
@@ -83,146 +91,38 @@ public class Menu {
                 }
             }
             int[] tagArray2 = Arrays.copyOfRange(tagArray, 0, counter2);
-
-            for (int i = 0; i < counter; i++) {
-                for (int j = 0; j < counter2; j++) {
-                    if (typeArray[i] == 1) {
-                        if (tagArray2[j] == 1){
-
-                        } else if (tagArray2[j] == 2) {
-
-                        } else if (tagArray2[j] == 3) {
-
-                        } else if (tagArray2[j] == 4) {
-
-                        } else if (tagArray2[j] == 5) {
-
-                        } else if (tagArray2[j] == 6) {
-
-                        } else if (tagArray2[j] == 7) {
-
-                        } else if (tagArray2[j] == 8) {
-
-                        } else if (tagArray2[j] == 9) {
-
-                        } else {
-                            System.out.println("Что-то пошло не так. Проверьте числа, которые вы ввели.");
-                        }
-                    } else if (typeArray2[i] == 2) {
-                        if (tagArray2[j] == 1){
-
-                        } else if (tagArray2[j] == 2) {
-
-                        } else if (tagArray2[j] == 3) {
-
-                        } else if (tagArray2[j] == 4) {
-
-                        } else if (tagArray2[j] == 5) {
-
-                        } else if (tagArray2[j] == 6) {
-
-                        } else if (tagArray2[j] == 7) {
-
-                        } else if (tagArray2[j] == 8) {
-
-                        } else if (tagArray2[j] == 9) {
-
-                        } else {
-                            System.out.println("Что-то пошло не так. Проверьте числа, которые вы ввели.");
-                        }
-                    } else if (typeArray2[i] == 3) {
-                        if (tagArray2[j] == 1){
-
-                        } else if (tagArray2[j] == 2) {
-
-                        } else if (tagArray2[j] == 3) {
-
-                        } else if (tagArray2[j] == 4) {
-
-                        } else if (tagArray2[j] == 5) {
-
-                        } else if (tagArray2[j] == 6) {
-
-                        } else if (tagArray2[j] == 7) {
-
-                        } else if (tagArray2[j] == 8) {
-
-                        } else if (tagArray2[j] == 9) {
-
-                        } else {
-                            System.out.println("Что-то пошло не так. Проверьте числа, которые вы ввели.");
-                        }
-                    } else if (typeArray2[i] == 4) {
-                        if (tagArray2[j] == 1){
-
-                        } else if (tagArray2[j] == 2) {
-
-                        } else if (tagArray2[j] == 3) {
-
-                        } else if (tagArray2[j] == 4) {
-
-                        } else if (tagArray2[j] == 5) {
-
-                        } else if (tagArray2[j] == 6) {
-
-                        } else if (tagArray2[j] == 7) {
-
-                        } else if (tagArray2[j] == 8) {
-
-                        } else if (tagArray2[j] == 9) {
-
-                        } else {
-                            System.out.println("Что-то пошло не так. Проверьте числа, которые вы ввели.");
-                        }
-                    } else if (typeArray2[i] == 5) {
-                        if (tagArray2[j] == 1){
-
-                        } else if (tagArray2[j] == 2) {
-
-                        } else if (tagArray2[j] == 3) {
-
-                        } else if (tagArray2[j] == 4) {
-
-                        } else if (tagArray2[j] == 5) {
-
-                        } else if (tagArray2[j] == 6) {
-
-                        } else if (tagArray2[j] == 7) {
-
-                        } else if (tagArray2[j] == 8) {
-
-                        } else if (tagArray2[j] == 9) {
-
-                        } else {
-                            System.out.println("Что-то пошло не так. Проверьте числа, которые вы ввели.");
-                        }
-                    } else if (typeArray2[i] == 6) {
-                        if (tagArray2[j] == 1){
-
-                        } else if (tagArray2[j] == 2) {
-
-                        } else if (tagArray2[j] == 3) {
-
-                        } else if (tagArray2[j] == 4) {
-
-                        } else if (tagArray2[j] == 5) {
-
-                        } else if (tagArray2[j] == 6) {
-
-                        } else if (tagArray2[j] == 7) {
-
-                        } else if (tagArray2[j] == 8) {
-
-                        } else if (tagArray2[j] == 9) {
-
-                        } else {
-                            System.out.println("Что-то пошло не так. Проверьте числа, которые вы ввели.");
-                        }
-                    } else {
-                        System.out.println("Что-то пошло не так. Проверьте числа, которые вы ввели.");
-                    }
+            Set<Tag> tags = new HashSet<>();
+            for (int i : tagArray2) {
+                switch (i) {
+                    case 1 -> tags.add(Tag.SPICY);
+                    case 2 -> tags.add(Tag.ALCOHOL);
+                    case 3 -> tags.add(Tag.VEGAN);
+                    case 4 -> tags.add(Tag.MEAT);
+                    case 5 -> tags.add(Tag.CHICKEN);
+                    case 6 -> tags.add(Tag.FISH);
+                    case 7 -> tags.add(Tag.SWEET);
+                    case 8 -> tags.add(Tag.HOTDRINK);
+                    case 9 -> tags.add(Tag.DRINK);
+                    default -> System.out.println();
                 }
             }
+            Set<Food> output = new HashSet<>();
+            for (FoodType i : types) {
+                HashSet<Food> newSet = new HashSet<>();
+                for (Tag j : tags) {
+                    for (Food temp : orderList) {
+                        if (temp.getType() == i && temp.getTags().contains(j)) {
+                            newSet.add(temp);
+                        }
+                    }
+                }
+                ArrayList<Food> tempSet = new ArrayList<>(newSet);
+                Random random = new Random();
+                output.add(tempSet.get(random.nextInt(tempSet.size())));
+            }
+
+            output.forEach(System.out::println);
+
         }
     }
 
